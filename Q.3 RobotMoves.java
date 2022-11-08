@@ -18,60 +18,39 @@ public class RobotMove {
     public static boolean robotPosition(String moves){
 
         int n = moves.length();
-        // int right = 0;
-        // int up = 0;
+        int right = 0;
+        int up = 0;
 
         if(n % 2 != 0 ){  //if string length is odd then return false
             return false; //improved version
         }
 
-        int counter = 0;
-
         for(int i=0; i<n; i++){
 
             char ch = moves.charAt(i);
 
-            if(ch == 'R' || ch == 'r' || ch == 'U' || ch =='u'){
-                
-                counter++;
+            switch(ch){
 
-            }else if(ch == 'L' || ch == 'l' || ch == 'D' || ch =='d'){
-
-                counter--;
+                case 'R' : right++;  //increament in right if goes right
+                           break;
+                case 'L' : right--; //decreament in right if goes left 
+                           break;
+                case 'U' : up++;   //increament in up if goes up
+                           break;
+                case 'D' : up--; //decereament in up if goes down
+                           break;
+                default :  System.out.println("Invalid Input");;
             }
-
         }
 
-            if(counter == 0)
-                return true;
-           
-            return false;
+        if( right == 0 && up == 0){
+            return true;
+        }
 
+        return false;
 
     }
 
-    //         switch(ch){
-
-    //             case 'R' : right++;  //increament in right if goes right
-    //                        break;
-    //             case 'L' : right--; //decreament in right if goes left 
-    //                        break;
-    //             case 'U' : up++;   //increament in up if goes up
-    //                        break;
-    //             case 'D' : up--; //decereament in up if goes down
-    //                        break;
-    //             default :  System.out.println("Invalid Input");;
-
-    //         }
-
-    //     }
-
-    //     if( right == 0 && up == 0){
-    //         return true;
-    //     }
-
-    //     return false;
-    // }
 
     public static void main(String args[]){
 		
@@ -83,3 +62,4 @@ public class RobotMove {
 	}
     
 }
+
